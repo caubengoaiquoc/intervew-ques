@@ -1,0 +1,22 @@
+{
+    "1": {
+        "name": "Code",
+        "isCompleted": true
+    },
+    "2": {
+        "name": "Code with team",
+        "isCompleted": false
+    },
+    "3": {
+        "name": "Metting with CTO",
+        "isCompleted": false
+    },
+    "4": {
+        "name": "POC for app",
+        "isCompleted": false
+    },
+    "5": {
+        "name": "Learning jest",
+        "isCompleted": false
+    }
+}
