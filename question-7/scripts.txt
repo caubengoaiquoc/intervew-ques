@@ -1,0 +1,42 @@
+CREATE TABLE Ticket_type (
+     id int NOT NULL AUTO_INCREMENT,
+     event_id int NOT NULL,
+     name CHAR(30) NOT NULL,
+     price decimal NOT NULL,
+     capacity int NOT NULL,
+     PRIMARY KEY (id),
+     KEY (event_id),
+     FOREIGN KEY (event_id) REFERENCES Event(id)
+)
+
+CREATE TABLE Event (
+     id int NOT NULL AUTO_INCREMENT,
+     name CHAR(100) NOT NULL,
+     category CHAR(100) NOT NULL,
+     start_datetime datetime NOT NULL,
+     PRIMARY KEY (id)
+)
+
+ALTER TABLE Event
+ADD FOREIGN KEY (category) REFERENCES User_like(category)
+
+CREATE TABLE User (
+     id int NOT NULL AUTO_INCREMENT,
+     PRIMARY KEY (id)
+)
+
+CREATE TABLE User_like (
+     user_id int NOT NULL,
+     category CHAR(100) NOT NULL,
+     PRIMARY KEY (user_id, category),
+     FOREIGN KEY (user_id) REFERENCES User(id)
+)
+
+CREATE TABLE Transaction (
+     id int NOT NULL AUTO_INCREMENT,
+     user_id int NOT NULL,
+     ticket_type_id int NOT NULL,
+     PRIMARY KEY (id),
+     FOREIGN KEY (user_id) REFERENCES User(id),
+     FOREIGN KEY (ticket_type_id) REFERENCES Ticket_type(id)
+)
